@@ -1,0 +1,15 @@
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+
+gulp.task('sas',function(){
+    return gulp.src(['node_modules/bootstrap/scss/*.scss','src/scss/*.scss'])
+            .pipe(sass())
+            .pipe(gulp.dest('src/css'));
+});
+
+gulp.task('watch',function(){
+    gulp.watch(['node_modules/bootstrap/scss/*.scss','src/scss/*.scss'],['sass']);
+});
+gulp.task('default',['sas','watch']);
+
+
